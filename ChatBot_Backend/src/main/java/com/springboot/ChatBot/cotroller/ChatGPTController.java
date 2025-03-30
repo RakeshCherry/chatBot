@@ -1,0 +1,23 @@
+package com.springboot.ChatBot.cotroller;
+
+import com.springboot.ChatBot.dto.PromptRequest;
+import com.springboot.ChatBot.service.ChatGPTSerivce;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("api/chat")
+public class ChatGPTController {
+
+    private final ChatGPTSerivce chatGPTSerivce;
+
+    @Autowired
+    public ChatGPTController(ChatGPTSerivce chatGPTSerivce) {
+        this.chatGPTSerivce = chatGPTSerivce;
+    }
+
+    @PostMapping
+    public String chat(@RequestBody PromptRequest promptRequest){
+        return chatGPTSerivce.getChatReaponse(promptRequest);
+    }
+}
