@@ -5,6 +5,7 @@ import com.springboot.ChatBot.service.ChatGPTSerivce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("api/chat")
 public class ChatGPTController {
